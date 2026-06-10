@@ -1,0 +1,22 @@
+---
+import Section from './Section.astro';
+import { resume } from '../data/resume';
+---
+
+<Section id="education" title="Education">
+  <div class="space-y-5">
+    {
+      resume.education.map((edu) => (
+        <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+          <div>
+            <h3 class="font-semibold">{edu.school}</h3>
+            <p class="text-[15px] text-[var(--color-muted)]">{edu.degree}</p>
+          </div>
+          <p class="shrink-0 text-sm tabular-nums text-[var(--color-muted)]">
+            {edu.period}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</Section>

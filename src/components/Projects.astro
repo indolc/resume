@@ -1,0 +1,48 @@
+---
+import Section from './Section.astro';
+import { resume } from '../data/resume';
+---
+
+<Section id="projects" title="Projects">
+  <div class="grid gap-4 sm:grid-cols-2">
+    {
+      resume.projects.map((project) => {
+        const Tag = project.href ? 'a' : 'div';
+        return (
+          <Tag
+            href={project.href}
+            target={project.href ? '_blank' : undefined}
+            rel={project.href ? 'noopener noreferrer' : undefined}
+            class="group flex flex-col rounded-xl bg-[var(--color-surface)] p-5 ring-1 ring-[var(--color-line)] transition-shadow hover:shadow-md"
+          >
+            <h3 class="flex items-center gap-1.5 font-semibold">
+              {project.name}
+              {project.href && (
+                <svg
+                  class="size-3.5 text-[var(--color-muted)] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path d="M7 17 17 7M9 7h8v8" />
+                </svg>
+              )}
+            </h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-[var(--color-muted)]">
+              {project.description}
+            </p>
+            <ul class="mt-4 flex flex-wrap gap-1.5">
+              {project.stack.map((tech) => (
+                <li class="rounded bg-[var(--color-canvas)] px-2 py-0.5 text-xs text-[var(--color-muted)]">
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          </Tag>
+        );
+      })
+    }
+  </div>
+</Section>

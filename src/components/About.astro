@@ -1,0 +1,10 @@
+---
+import Section from './Section.astro';
+import { resume } from '../data/resume';
+---
+
+<Section id="about" title="About">
+  <p class="text-lg leading-relaxed text-[var(--color-ink)]">
+    {resume.about}
+  </p>
+</Section>

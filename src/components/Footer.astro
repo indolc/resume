@@ -1,0 +1,41 @@
+---
+import { resume } from '../data/resume';
+---
+
+<footer class="border-t border-[var(--color-line)] py-12">
+  <div
+    class="mx-auto flex max-w-3xl flex-col items-start gap-6 px-6 sm:flex-row sm:items-center sm:justify-between"
+  >
+    <div>
+      <p class="font-semibold">{resume.name}</p>
+      <a
+        href={`mailto:${resume.email}`}
+        class="text-sm text-[var(--color-muted)] transition-colors hover:text-[var(--color-accent)]"
+      >
+        {resume.email}
+      </a>
+    </div>
+
+    <div class="flex items-center gap-4 text-sm">
+      {
+        resume.socials.map((s) => (
+          <a
+            href={s.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-[var(--color-muted)] transition-colors hover:text-[var(--color-accent)]"
+          >
+            {s.label}
+          </a>
+        ))
+      }
+      <button
+        type="button"
+        onclick="window.print()"
+        class="no-print rounded-md bg-[var(--color-ink)] px-3 py-1.5 text-xs font-medium text-white transition-opacity hover:opacity-80"
+      >
+        PDF로 저장
+      </button>
+    </div>
+  </div>
+</footer>
