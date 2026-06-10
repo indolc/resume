@@ -51,7 +51,7 @@ export interface Resume {
 }
 
 export const resume: Resume = {
-  name: '김현우',
+  name: '박현우',
   title: 'Frontend Engineer',
   tagline: '사용자 경험과 성능을 함께 고민하는 프론트엔드 엔지니어입니다.',
   location: 'Seoul, South Korea',
